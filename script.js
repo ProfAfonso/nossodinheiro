@@ -103,11 +103,15 @@ function criarMoeda(valor, destino) {
   );
 
   moeda.innerHTML = `
-    <span class="simbolo">R$</span>
-    <span class="valor">
-      ${valor === 100 ? "1,00" : String(valor).padStart(2, "0")}
-    </span>
-  `;
+  <span class="simbolo">R$</span>
+  <span class="valor">
+    ${
+      valor === 100
+        ? "1,00"
+        : "0," + String(valor).padStart(2, "0")
+    }
+  </span>
+`;
 
   moeda.addEventListener("dragstart", (e) => {
 
