@@ -1,0 +1,461 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --azul: #173b67;
+  --azul2: #245b91;
+  --fundo: #eef4fb;
+  --verde: #23845b;
+  --amarelo: #ffd45a;
+  --texto: #203047;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  padding: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--texto);
+  background: linear-gradient(135deg, #e7f1ff, #fff8e8);
+}
+
+.app {
+  width: min(1050px, 100%);
+  margin: 0 auto;
+}
+
+.topo {
+  text-align: center;
+  color: var(--azul);
+  margin: 4px 0 22px;
+}
+
+.marca {
+  font-size: clamp(25px, 4vw, 38px);
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+.subtitulo {
+  margin-top: 6px;
+  font-size: 15px;
+}
+
+.painel {
+  background: white;
+  border: 2px solid #d8e4f1;
+  border-radius: 22px;
+  padding: 22px;
+  box-shadow: 0 8px 22px #173b6712;
+}
+
+.inicio,
+.final {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 35px 24px;
+}
+
+.inicio h1,
+.final h1 {
+  color: var(--azul);
+  font-size: clamp(24px, 4vw, 34px);
+}
+
+.inicio p,
+.final p {
+  line-height: 1.55;
+}
+
+.icone-inicio {
+  font-size: 64px;
+}
+
+.mini-dinheiro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 22px;
+  margin: 25px 0;
+}
+
+.botao {
+  border: 0;
+  border-radius: 12px;
+  padding: 13px 20px;
+  font-weight: 800;
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform .15s, filter .15s;
+}
+
+.botao:hover {
+  filter: brightness(1.06);
+  transform: translateY(-2px);
+}
+
+.botao:focus-visible {
+  outline: 3px solid #f0b928;
+  outline-offset: 3px;
+}
+
+.principal {
+  color: white;
+  background: var(--azul2);
+}
+
+.secundario {
+  color: var(--azul);
+  background: #e7eef7;
+}
+
+.dica,
+.rodape-jogo {
+  color: #718096;
+  font-size: 13px;
+}
+
+.linha-status {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.status {
+  background: white;
+  border: 1px solid #d8e4f1;
+  border-radius: 30px;
+  padding: 9px 16px;
+}
+
+.missao {
+  text-align: center;
+  padding: 18px;
+}
+
+.nome-etapa {
+  color: var(--azul2);
+  font-weight: 900;
+  letter-spacing: .5px;
+  font-size: 14px;
+}
+
+.missao h2 {
+  margin: 10px 0;
+  font-size: clamp(20px, 3vw, 27px);
+}
+
+.alvo {
+  min-height: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+}
+
+#mensagem {
+  min-height: 22px;
+  font-weight: 700;
+  margin: 8px 0 0;
+  color: #52647a;
+}
+
+.area-jogo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.titulo-area {
+  color: var(--azul);
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.titulo-area span {
+  font-size: 25px;
+}
+
+.orientacao {
+  color: #6d7c8e;
+  font-size: 14px;
+  margin: 7px 0 15px;
+}
+
+.banco-moedas,
+.moedas-escolhidas {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 160px;
+}
+
+.moeda {
+  width: 67px;
+  height: 67px;
+  border-radius: 50%;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
+  box-shadow: inset 0 0 0 3px #ffffff8c, 0 3px 5px #0002;
+  border: 3px solid #a6a6a6;
+  color: #39434d;
+  background: radial-gradient(circle, #f8f8f8 35%, #c7cbd0 100%);
+}
+
+.moeda:active {
+  cursor: grabbing;
+}
+
+.moeda .simbolo {
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.moeda .valor {
+  font-size: 18px;
+}
+
+.moeda[data-centavos="5"] {
+  background: radial-gradient(circle, #f7e9ce 35%, #c98d4b 100%);
+  border-color: #a96d36;
+}
+
+.moeda[data-centavos="10"] {
+  background: radial-gradient(circle, #f4f4f4 35%, #b9c1c9 100%);
+  border-color: #929ca7;
+}
+
+.moeda[data-centavos="25"] {
+  background: radial-gradient(circle, #f6e4c7 35%, #c88a49 100%);
+  border-color: #a96d36;
+}
+
+.moeda[data-centavos="50"] {
+  background: radial-gradient(circle, #f4f4f4 35%, #aeb7c0 100%);
+  border-color: #858f99;
+}
+
+.moeda.um-real {
+  background: radial-gradient(
+    circle,
+    #d5d8db 0 45%,
+    #e8c66a 47% 68%,
+    #a8afb5 70%
+  );
+  border: 4px solid #b89539;
+}
+
+.area-soltar {
+  min-height: 175px;
+  border: 3px dashed #9bb4ce;
+  border-radius: 16px;
+  background: #f7faff;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: background .15s, border-color .15s;
+}
+
+.area-soltar.destacada {
+  background: #e8f6ee;
+  border-color: var(--verde);
+}
+
+.placeholder {
+  color: #92a0af;
+  text-align: center;
+}
+
+.moedas-escolhidas {
+  min-height: 0;
+}
+
+.moedas-escolhidas .moeda {
+  width: 57px;
+  height: 57px;
+}
+
+.moedas-escolhidas .moeda .valor {
+  font-size: 16px;
+}
+
+.total {
+  text-align: center;
+  font-size: 21px;
+  margin: 15px 0;
+  color: var(--azul);
+}
+
+.acoes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 9px;
+}
+
+.rodape-jogo {
+  text-align: center;
+  padding: 16px;
+}
+
+/* Representações ilustrativas das cédulas brasileiras */
+
+.nota {
+  width: 150px;
+  height: 75px;
+  border-radius: 9px;
+  border: 3px solid #4c956f;
+  background: linear-gradient(135deg, #d6f0d8, #8fc9a5);
+  color: #175a39;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  box-shadow: 0 4px 7px #0002;
+  position: relative;
+  overflow: hidden;
+}
+
+.nota::before,
+.nota::after {
+  content: "✿";
+  position: absolute;
+  opacity: .22;
+  font-size: 36px;
+}
+
+.nota::before {
+  left: 8px;
+}
+
+.nota::after {
+  right: 8px;
+}
+
+.nota .valor-nota {
+  font-size: 27px;
+  line-height: 1;
+}
+
+.nota .nome-nota {
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+
+.nota-2 {
+  background: linear-gradient(135deg, #e3e9f3, #9cacc6);
+  border-color: #526789;
+  color: #243d64;
+}
+
+.nota-5 {
+  background: linear-gradient(135deg, #e2f1d7, #9fca84);
+  border-color: #5e8a49;
+  color: #315a28;
+}
+
+.nota-10 {
+  background: linear-gradient(135deg, #f8e6ca, #dca66c);
+  border-color: #a36b35;
+  color: #75451f;
+}
+
+.nota-20 {
+  background: linear-gradient(135deg, #fff0c2, #e8ca67);
+  border-color: #ad9135;
+  color: #735b14;
+}
+
+.alvo-moeda {
+  transform: scale(1.25);
+  margin: 10px;
+}
+
+.mensagem-ok {
+  color: #218454 !important;
+}
+
+.mensagem-erro {
+  color: #bd493e !important;
+}
+
+.selo {
+  display: inline-block;
+  background: #fff1bb;
+  border: 2px solid #e4b83e;
+  padding: 12px 20px;
+  border-radius: 30px;
+  font-weight: 900;
+  margin: 18px 0;
+  color: #795d12;
+}
+
+.escondido {
+  display: none !important;
+}
+
+.cartao-valor {
+  min-width: 230px;
+  padding: 15px 25px;
+  border-radius: 14px;
+  border: 3px solid #6685a8;
+  color: #244568;
+  background: linear-gradient(135deg, #f5f9ff, #dce9f7);
+  box-shadow: 0 4px 8px #0002;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.cartao-valor span {
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+.cartao-valor strong {
+  font-size: 32px;
+}
+
+.cartao-valor small {
+  font-size: 11px;
+}
+
+@media (max-width: 720px) {
+  body {
+    padding: 12px;
+  }
+
+  .area-jogo {
+    grid-template-columns: 1fr;
+  }
+
+  .painel {
+    padding: 16px;
+  }
+
+  .banco-moedas {
+    min-height: 125px;
+  }
+
+  .linha-status {
+    justify-content: center;
+  }
+}
