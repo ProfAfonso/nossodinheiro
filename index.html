@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#173b67">
+  <title>Banco das Trocas</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="app">
+
+    <header class="topo">
+      <div class="marca">🏦 BANCO DAS TROCAS</div>
+      <div class="subtitulo">
+        Aprendendo a formar valores com o dinheiro brasileiro
+      </div>
+    </header>
+
+    <section id="inicio" class="painel inicio">
+      <div class="icone-inicio">💰</div>
+      <h1>Bem-vindo ao Banco das Trocas!</h1>
+      <p>
+        Arraste as moedas para o espaço do banco e complete
+        o valor solicitado.
+      </p>
+
+      <div class="mini-dinheiro">
+        <span class="coin coin-50">50</span>
+        <span class="coin coin-25">25</span>
+        <span class="nota nota-2">2 REAIS</span>
+      </div>
+
+      <button id="btn-iniciar" class="botao principal">
+        Começar a jogar
+      </button>
+
+      <p class="dica">
+        Dica: você pode devolver uma moeda arrastando-a de volta
+        ou clicando nela.
+      </p>
+    </section>
+
+    <section id="jogo" class="escondido">
+
+      <div class="linha-status">
+        <div class="status">Etapa <strong id="etapa-atual">1</strong>/3</div>
+        <div class="status">Desafio <strong id="desafio-atual">1</strong>/15</div>
+        <div class="status">Pontos <strong id="pontos">0</strong></div>
+      </div>
+
+      <div class="painel missao">
+        <div id="nome-etapa" class="nome-etapa">
+          ETAPA 1 – TROCA POR R$ 1,00
+        </div>
+
+        <h2 id="instrucao">Complete o valor solicitado!</h2>
+
+        <div id="alvo" class="alvo"></div>
+
+        <p id="mensagem" aria-live="polite">
+          Arraste as moedas até a área de troca.
+        </p>
+      </div>
+
+      <div class="area-jogo">
+
+        <section class="painel area-moedas">
+          <div class="titulo-area">
+            <span>🪙</span> Suas moedas
+          </div>
+
+          <p class="orientacao">
+            Arraste as moedas que deseja usar.
+          </p>
+
+          <div id="banco-moedas" class="banco-moedas"></div>
+        </section>
+
+        <section class="painel area-troca">
+          <div class="titulo-area">
+            <span>🏦</span> Área de troca
+          </div>
+
+          <p class="orientacao">
+            Solte as moedas aqui.
+          </p>
+
+          <div id="area-soltar" class="area-soltar">
+            <div id="placeholder" class="placeholder">
+              Arraste as moedas para cá
+            </div>
+
+            <div id="moedas-escolhidas" class="moedas-escolhidas"></div>
+          </div>
+
+          <div class="total">
+            Total: <strong id="total">R$ 0,00</strong>
+          </div>
+
+          <div class="acoes">
+            <button id="btn-limpar" class="botao secundario">
+              ↩ Devolver moedas
+            </button>
+
+            <button id="btn-conferir" class="botao principal">
+              Conferir troca
+            </button>
+          </div>
+        </section>
+
+      </div>
+
+      <div class="rodape-jogo">
+        Dinheiro ilustrativo para aprendizagem • Sistema monetário brasileiro
+      </div>
+
+    </section>
+
+    <section id="final" class="painel final escondido">
+      <div class="icone-inicio">🏆</div>
+
+      <h1>Parabéns! Você concluiu as trocas!</h1>
+
+      <p id="resultado-final"></p>
+
+      <div class="selo">
+        ⭐ BANQUEIRO MIRIM ⭐
+      </div>
+
+      <button id="btn-reiniciar" class="botao principal">
+        Jogar novamente
+      </button>
+    </section>
+
+  </main>
+</body>
+</html>
