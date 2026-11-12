@@ -10,40 +10,34 @@
 </head>
 <body>
   <main class="app">
-
     <header class="topo">
       <div class="marca">🏦 BANCO DAS TROCAS</div>
-      <div class="subtitulo">
-        Aprendendo a formar valores com o dinheiro brasileiro
-      </div>
+      <div class="subtitulo">Aprendendo a formar valores com o dinheiro brasileiro</div>
     </header>
 
     <section id="inicio" class="painel inicio">
       <div class="icone-inicio">💰</div>
       <h1>Bem-vindo ao Banco das Trocas!</h1>
-      <p>
-        Arraste as moedas para o espaço do banco e complete
-        o valor solicitado.
-      </p>
+      <p>Arraste as moedas e cédulas para o espaço do banco e complete o valor solicitado.</p>
 
       <div class="mini-dinheiro">
-        <span class="coin coin-50">50</span>
-        <span class="coin coin-25">25</span>
-        <span class="nota nota-2">2 REAIS</span>
+        <span class="peca moeda moeda-50 mini-peca" aria-label="Moeda ilustrativa de 50 centavos">
+          <span class="valor">R$<br>0,50</span>
+        </span>
+        <span class="peca moeda moeda-25 mini-peca" aria-label="Moeda ilustrativa de 25 centavos">
+          <span class="valor">R$<br>0,25</span>
+        </span>
+        <span class="peca cedula cedula-2 mini-cedula" aria-label="Cédula educativa de 2 reais">
+          <span class="valor">R$ 2</span><small>EDUCATIVA</small>
+        </span>
       </div>
 
-      <button id="btn-iniciar" class="botao principal">
-        Começar a jogar
-      </button>
-
-      <p class="dica">
-        Dica: você pode devolver uma moeda arrastando-a de volta
-        ou clicando nela.
-      </p>
+      <button id="btn-iniciar" class="botao principal">Começar a jogar</button>
+      <p class="dica">Dica: você pode devolver uma peça arrastando-a de volta ou clicando nela.</p>
+      <p class="aviso-educativo">Dinheiro ilustrativo para atividades educativas. Não reproduz cédulas ou moedas oficiais.</p>
     </section>
 
     <section id="jogo" class="escondido">
-
       <div class="linha-status">
         <div class="status">Etapa <strong id="etapa-atual">1</strong>/3</div>
         <div class="status">Desafio <strong id="desafio-atual">1</strong>/15</div>
@@ -51,89 +45,54 @@
       </div>
 
       <div class="painel missao">
-        <div id="nome-etapa" class="nome-etapa">
-          ETAPA 1 – TROCA POR R$ 1,00
-        </div>
-
+        <div id="nome-etapa" class="nome-etapa">ETAPA 1 – TROCA POR R$ 1,00</div>
         <h2 id="instrucao">Complete o valor solicitado!</h2>
-
         <div id="alvo" class="alvo"></div>
-
-        <p id="mensagem" aria-live="polite">
-          Arraste as moedas até a área de troca.
-        </p>
+        <p id="mensagem" aria-live="polite">Arraste as moedas até a área de troca.</p>
       </div>
 
       <div class="area-jogo">
-
         <section class="painel area-moedas">
-          <div class="titulo-area">
-            <span>🪙</span> Suas moedas
-          </div>
-
-          <p class="orientacao">
-            Arraste as moedas que deseja usar.
-          </p>
-
+          <div class="titulo-area"><span>🪙</span> Dinheiro disponível</div>
+          <p class="orientacao">Arraste as moedas e cédulas que deseja usar.</p>
           <div id="banco-moedas" class="banco-moedas"></div>
         </section>
 
         <section class="painel area-troca">
-          <div class="titulo-area">
-            <span>🏦</span> Área de troca
-          </div>
-
-          <p class="orientacao">
-            Solte as moedas aqui.
-          </p>
-
+          <div class="titulo-area"><span>🏦</span> Área de troca</div>
+          <p class="orientacao">Solte o dinheiro aqui.</p>
           <div id="area-soltar" class="area-soltar">
-            <div id="placeholder" class="placeholder">
-              Arraste as moedas para cá
-            </div>
-
+            <div id="placeholder" class="placeholder">Arraste as moedas e cédulas para cá</div>
             <div id="moedas-escolhidas" class="moedas-escolhidas"></div>
           </div>
-
-          <div class="total">
-            Total: <strong id="total">R$ 0,00</strong>
-          </div>
-
+          <div class="total">Total: <strong id="total">R$ 0,00</strong></div>
           <div class="acoes">
-            <button id="btn-limpar" class="botao secundario">
-              ↩ Devolver moedas
-            </button>
-
-            <button id="btn-conferir" class="botao principal">
-              Conferir troca
-            </button>
+            <button id="btn-limpar" class="botao secundario">↩ Devolver dinheiro</button>
+            <button id="btn-conferir" class="botao principal">Conferir troca</button>
           </div>
         </section>
-
       </div>
+      <div class="rodape-jogo">Dinheiro ilustrativo para aprendizagem • Sistema monetário brasileiro</div>
+    </section>
 
-      <div class="rodape-jogo">
-        Dinheiro ilustrativo para aprendizagem • Sistema monetário brasileiro
-      </div>
-
+    <section id="perguntas" class="painel perguntas escondido">
+      <div class="icone-inicio">🧠</div>
+      <div class="nome-etapa">DESAFIO FINAL – PENSE E RESPONDA</div>
+      <h1>Agora é sua vez de responder!</h1>
+      <div class="progresso-pergunta">Pergunta <strong id="numero-pergunta">1</strong>/5</div>
+      <h2 id="texto-pergunta"></h2>
+      <div id="alternativas" class="alternativas"></div>
+      <p id="feedback-pergunta" aria-live="polite"></p>
+      <button id="btn-proxima-pergunta" class="botao principal escondido">Próxima pergunta</button>
     </section>
 
     <section id="final" class="painel final escondido">
       <div class="icone-inicio">🏆</div>
-
-      <h1>Parabéns! Você concluiu as trocas!</h1>
-
+      <h1>Parabéns! Você concluiu o Banco das Trocas!</h1>
       <p id="resultado-final"></p>
-
-      <div class="selo">
-        ⭐ BANQUEIRO MIRIM ⭐
-      </div>
-
-      <button id="btn-reiniciar" class="botao principal">
-        Jogar novamente
-      </button>
+      <div class="selo">⭐ BANQUEIRO MIRIM ⭐</div>
+      <button id="btn-reiniciar" class="botao principal">Jogar novamente</button>
     </section>
-
   </main>
 </body>
 </html>
